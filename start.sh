@@ -6,13 +6,9 @@ echo "PORT is: $PORT"
 
 envsubst '${PORT}' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf
 echo "nginx config generated"
-cat /etc/nginx/nginx.conf
 
 nginx &
-echo "nginx started"
+echo "nginx started in background"
 
 cd /app
-./DockerEntrypoint.sh &
-echo "x-ui entrypoint launched"
-
-wait -n
+exec ./DockerEntrypoint.sh
