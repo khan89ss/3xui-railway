@@ -11,10 +11,8 @@ cat /etc/nginx/nginx.conf
 nginx &
 echo "nginx started"
 
-ls -la /app 2>&1
-which x-ui 2>&1
-
-/app/x-ui &
-echo "x-ui launch attempted, exit code: $?"
+cd /app
+./DockerEntrypoint.sh &
+echo "x-ui entrypoint launched"
 
 wait -n
