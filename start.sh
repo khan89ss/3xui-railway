@@ -7,7 +7,9 @@ export NGINX_PORT="${PORT:-3000}"
 
 cd /usr/local/x-ui
 
-find / -iname "*.db" 2>/dev/null || true
+echo "=== Searching for db files ==="
+find /etc /usr/local /root /var -iname "*.db" 2>/dev/null
+echo "=== Search complete ==="
 
 echo "Applying panel settings via x-ui CLI..."
 ./x-ui setting -port 2053 -webBasePath /managepanel/ || true
