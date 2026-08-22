@@ -6,6 +6,7 @@ echo "Starting X-UI + nginx reverse proxy..."
 export NGINX_PORT="${PORT:-3000}"
 
 cd /usr/local/x-ui
+
 find / -iname "*.db" 2>/dev/null || true
 
 echo "Applying panel settings via x-ui CLI..."
